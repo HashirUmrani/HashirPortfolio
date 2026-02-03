@@ -31,7 +31,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-900 relative overflow-hidden">
+    <section className="py-20 bg-gray-900 relative overflow-hidden scroll-mt-20">
       <div className="container mx-auto px-6 relative z-10">
         {/* Heading */}
         <motion.div

@@ -48,10 +48,7 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="relative py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden"
-    >
+    <section className="relative py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
       {/* Glow background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl" />

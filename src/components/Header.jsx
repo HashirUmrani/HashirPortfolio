@@ -10,15 +10,26 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // 🔥 IMPROVED SCROLL FUNCTION (works on mobile perfectly)
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
+
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -80; // Offset for fixed header
+      const yPosition =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: yPosition,
+        behavior: "smooth",
+      });
     }
+
     setIsMenuOpen(false);
   };
 
@@ -104,20 +115,22 @@ const Header = () => {
         >
           <div className="mt-4 py-4 border-t border-gray-700 space-y-2">
             {menuItems.map((item, index) => (
-              <motion.button
+              <motion.div
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left py-2 hover:text-blue-400 transition-colors duration-200 cursor-pointer"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{
                   opacity: isMenuOpen ? 1 : 0,
                   x: isMenuOpen ? 0 : -20,
                 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ x: 10 }}
               >
-                {item}
-              </motion.button>
+                <button
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className="block w-full text-left py-3 px-2 hover:text-blue-400 transition-colors duration-200 cursor-pointer"
+                >
+                  {item}
+                </button>
+              </motion.div>
             ))}
           </div>
         </motion.nav>

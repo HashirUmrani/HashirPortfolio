@@ -12,23 +12,28 @@ const App = () => {
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
       <Header />
 
-      <section id="home">
+      {/* Hero Section */}
+      <section id="home" className="scroll-mt-20">
         <Hero />
       </section>
 
-      <section id="about">
+      {/* About Section */}
+      <section id="about" className="scroll-mt-20">
         <About />
       </section>
 
-      <section id="projects">
+      {/* Projects Section */}
+      <section id="projects" className="scroll-mt-20">
         <Projects />
       </section>
 
-      <section id="skills">
+      {/* Skills Section */}
+      <section id="skills" className="scroll-mt-20">
         <Skills />
       </section>
 
-      <section id="contact">
+      {/* Contact Section */}
+      <section id="contact" className="scroll-mt-20">
         <Contact />
       </section>
 
